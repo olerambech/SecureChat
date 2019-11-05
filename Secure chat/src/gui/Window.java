@@ -9,12 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Window {
 
 	private JFrame frame;
 	private JTextField ipField;
 	private JTextArea chatField;
+	private JButton btnConnect;
+	private final Action action = new SwingAction();
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +64,8 @@ public class Window {
 		panel.add(ipField);
 		ipField.setColumns(10);
 		
-		JButton btnConnect = new JButton("Connect");
+		btnConnect = new JButton("Connect");
+		
 		panel.add(btnConnect);
 		
 		JPanel panel_1 = new JPanel();
@@ -73,4 +81,20 @@ public class Window {
 		return chatField;
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+
+	public JButton getbtnConnect() {
+		return btnConnect;
+	}
+
+	public String getIp() {
+		return ipField.getText();
+	}
 }
