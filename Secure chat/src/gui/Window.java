@@ -14,22 +14,22 @@ public class Window {
 
 	private JFrame frame;
 	private JTextField ipField;
-
+	private JTextArea chatField;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Window window = new Window();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Window window = new Window();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -63,9 +63,14 @@ public class Window {
 		JPanel panel_1 = new JPanel();
 		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
 		
-		JTextArea chatField = new JTextArea();
-		chatField.setColumns(70);
+		chatField = new JTextArea();
+		chatField.setColumns(40);
 		panel_1.add(chatField);
+		
+		
+	}
+	public JTextArea getChatField() {
+		return chatField;
 	}
 
 }
